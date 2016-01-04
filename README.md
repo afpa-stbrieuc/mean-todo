@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/afpa-stbrieuc/mean-todo.svg?branch=master)](https://travis-ci.org/afpa-stbrieuc/mean-todo)
+
 #Sample init todo mean app
 use mongodb as persistance, nodejs with express/mongoose, Angularjs as frontend
 

@@ -1,11 +1,12 @@
-var express = require('express')
-  , app = express()
-  , bodyParser = require('body-parser')
-  , port = process.env.PORT || 3000
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var port = process.env.PORT || 3000;
+var config = require('./config');
 
 
 var mongoose   = require('mongoose');
-mongoose.connect('localhost:27017/todos'); // connect to our database
+mongoose.connect(config.db.mongodb); // connect to our database
 
 // configure body parser so we can get http body data
 app.use(bodyParser.urlencoded({ extended: true }));

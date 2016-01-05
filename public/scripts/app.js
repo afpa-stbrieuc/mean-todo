@@ -11,16 +11,6 @@ angular.module('mytodoApp', [
   'ui.bootstrap',
   'dialogs.main' //https://github.com/m-e-conroy/angular-dialog-service
 ])
-  .config(['$routeProvider', function($routeProvider){
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/todos.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  }])
   .config(['$resourceProvider', function($resourceProvider) {
     // this is to allow calling GET /todos/ instead of /todos
     $resourceProvider.defaults.stripTrailingSlashes = false;
@@ -39,13 +29,6 @@ angular.module('mytodoApp', [
     });
 
   }])
-  .factory('Todo', ['$resource', function($resource){
-      return $resource('/api/todos/:id', {id:'@id'}, {
-        update: {
-          method: 'PUT' // this method issues a PUT request
-        }
-      });
-    }])
   .run(function(editableOptions) {
       editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
     });

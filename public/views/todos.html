@@ -20,7 +20,7 @@
   <ul ui-sortable ng-model="todos">
     <!-- <form role="form" ng-submit="update()"> -->
     <li class="input-group" ng-repeat="todo in todos">
-      <h2 href="#" editable-text="todo.name" onbeforesave="update($data, $index)">{{ todo.name }}</h2>
+      <h2 href="#" ng-click="edit($index)">{{ todo.name }}</h2>
       <span class="input-group-btn">
         <button class="btn btn-danger" ng-click="delete($index)" aria-label="Remove">X</button>
       </span>

@@ -30,8 +30,8 @@ describe('Controller: MainCtrl', function () {
       scope.name = 'Test 1';
       scope.add();
 
-      var todo = scope.todos[scope.todos.length-1];
-      scope.delete(todo);
+      //var todo = scope.todos[scope.todos.length-1];
+      scope.delete(scope.todos.length-1);
       expect(scope.todos.length).toBe(1);
     });
 

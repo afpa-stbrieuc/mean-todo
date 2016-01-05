@@ -9,4 +9,4 @@ angular.module('mytodoApp').config(['$routeProvider', function($routeProvider){
       .otherwise({
         redirectTo: '/'
       });
-  }])
+  }]);

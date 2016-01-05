@@ -5,9 +5,7 @@ angular.module('mytodoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ui.sortable',
   'pascalprecht.translate',
-  'xeditable',
   'ui.bootstrap',
   'dialogs.main' //https://github.com/m-e-conroy/angular-dialog-service
 ])
@@ -28,7 +26,4 @@ angular.module('mytodoApp', [
       DIALOGS_OK: 'OK'
     });
 
-  }])
-  .run(function(editableOptions) {
-      editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-    });
+  }]);

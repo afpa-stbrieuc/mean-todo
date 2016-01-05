@@ -16,7 +16,7 @@ angular.module('mytodoApp')
 
     $scope.delete = function(index) {
       var todo = $scope.todos[index];
-      Todo.delete(todo, function() {
+      Todo.delete({ id:todo._id }, todo, function() {
         dialogs.notify('delete', 'cool');
         $scope.todos.splice($scope.todos.indexOf(todo), 1);
       }, function(error) {
@@ -38,7 +38,7 @@ angular.module('mytodoApp')
     $scope.update = function(name, index) {
       var todo = $scope.todos[index];
       todo.name = name;
-      Todo.update(todo,
+      Todo.update({ id:todo._id }, todo,
         function() {},
         function(error) { //error
           dialogs.error('Error', 'server error');

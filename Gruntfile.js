@@ -334,7 +334,8 @@ module.exports = function(grunt) {
       dist: [
         'copy:styles',
         'imagemin',
-        'svgmin'
+        'svgmin',
+        'packageModules'
       ]
     },
 
@@ -432,7 +433,6 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
-    'packageModules:dist',
     'copy:dist',
     'cdnify',
     'cssmin',

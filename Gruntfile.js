@@ -77,12 +77,6 @@ module.exports = function(grunt) {
 
     },
 
-    // configure nodemon
-    // nodemon: {
-    //   dev: {
-    //     script: 'server.js'
-    //   }
-    // },
     express: {
       options: {
         // Override defaults here
@@ -94,6 +88,17 @@ module.exports = function(grunt) {
       },
     },
 
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec',
+          quiet: false, // Optionally suppress output to standard out (defaults to false)
+          clearRequireCache: false // Optionally clear the require cache before running tests (defaults to false)
+        },
+        src: ['test/server-tests/**/*.js']
+      }
+    },
+
     // grunt-open will open your browser at the project's URL
     open: {
       all: {
@@ -102,7 +107,7 @@ module.exports = function(grunt) {
       }
     },
 
-    // Make sure code styles are up to par and there are no obvious mistakes
+    // Make sure code styles are up to parse and there are no obvious mistakes
     jshint: {
       options: {
         jshintrc: '.jshintrc',
@@ -415,6 +420,7 @@ module.exports = function(grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
+    'mochaTest',
     'karma'
   ]);
 

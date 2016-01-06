@@ -12,8 +12,30 @@ mongoose.connect(config.db.mongodb); // connect to our database
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(require('./controllers'))
+app.use(require('./controllers'));
 
-app.listen(port, function() {
-  console.log('Listening on port ' + port)
-})
+
+var server;
+
+
+
+app.boot = function(){
+	server = app.listen(port, function() {
+  		console.log('Listening on port ' + port)
+	})
+}
+
+app.shutdown = function() {
+	console.log('Shutdown server on port ' + port)
+	server.close();
+}
+
+//if launched via command line or used as a module (e.g tests) @see http://stackoverflow.com/questions/8864365/can-i-know-in-node-js-if-my-script-is-being-run-directly-or-being-loaded-by-an
+if (require.main === module) {
+	boot();
+}
+else {
+	console.info('Running app as a module')
+
+	module.exports = app;
+}

@@ -12,7 +12,7 @@ router.get('/', function(req, res) {
 	});
 });
 
-//get all todos
+//add todo
 router.post('/', function(req, res) {
 
 	var todo = new Todo(); // create a new instance of the Todo model
@@ -22,7 +22,7 @@ router.post('/', function(req, res) {
 		if (err)
 			res.send(err);
 
-		res.json(todo);
+		res.json(201, todo);
 	});
 
 
@@ -41,6 +41,8 @@ router.get('/:todo_id', function(req, res) {
 
 // update the Todo with this id
 router.put('/:todo_id', function(req, res) {
+
+	if (req.params.todo_id === undefined) return res.send(400,'todo id empty');
 
 	Todo.findById(req.params.todo_id, function(err, todo) {
 

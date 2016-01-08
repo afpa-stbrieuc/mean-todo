@@ -13,3 +13,5 @@ install:
 - bower install
 script:
 - grunt
+notifications:
+  slack: afpa-dev-22:tb0RKZ9Dg61dfuW9PQxg0uG8

@@ -32,7 +32,7 @@ app.shutdown = function() {
 
 //if launched via command line or used as a module (e.g tests) @see http://stackoverflow.com/questions/8864365/can-i-know-in-node-js-if-my-script-is-being-run-directly-or-being-loaded-by-an
 if (require.main === module) {
-	boot();
+	app.boot();
 }
 else {
 	console.info('Running app as a module')

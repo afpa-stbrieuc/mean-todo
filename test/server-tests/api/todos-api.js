@@ -3,11 +3,12 @@
 var should = require('should');
 
 var app = require('./../../../server');
+var config = require('./../config-test');
 var request = require('supertest')(app);
 
 
 before(function() {
-	app.boot();
+	app.boot(config);
 });
 
 after(function() {

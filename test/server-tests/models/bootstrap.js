@@ -16,7 +16,7 @@ var config = require('./../config-test');
 before(function(done) {
 
   mongoose.connection.on('error', function(err) {
-    console.log("don't have time to work around this:"+err);
+    console.log(err);
   });
 
   // Connecting to a local test database or creating it on the fly
